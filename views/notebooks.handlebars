@@ -1,0 +1,47 @@
+<form action="/notebooks/search" >
+    <input type="text" name="termvendor" placeholder="Vendor..." value="" style="display: inline-block; width: 300px">
+    <input type="text" name="termcpu" placeholder="Cpu..." value="" style="display: inline-block; width: 300px">
+    <input type="number" name="termdisplay" placeholder="Display..." value="15" style="display: inline-block; width: 300px">
+        <button type="submit" title="Filter">Filter</button>
+
+    <div>
+        <input type="radio" id="vendorchoice" name="sortingorder" value="vendor" checked>
+        <label for="vendorchoice">Vendor</label>
+
+        <input type="radio" id="cpuchoice" name="sortingorder" value="cpu">
+        <label for="cpuchoice">Cpu</label>
+
+        <input type="radio" id="displaychoice" name="sortingorder" value="display">
+        <label for="displaychoice">Display</label>
+        <i>: Sorting</i>
+    </div>
+</form>
+
+
+<div>
+    <h4>Notebooks</h4>
+
+    {{#each notebooksqueryresult}}
+        <span style="display: inline-block; width: 400px">
+            <span class="media-object-section">
+                <img class="thumbnail" src="https://placehold.it/50x50">
+            </span>
+            <span class="media-object-section">
+                ID- {{id}}
+                <b>Notebook {{vendor}}</b>
+                <i>cpu {{cpu}}</i>
+                <b>display {{display}}</b>
+
+            </span>
+            <form action="/notebooks/detail">
+                <input  type="number" name="itemdetail" value="{{id}}" style="visibility: hidden">
+                <button type="submit" title="itemdetail">Item detail</button>
+            </form>
+        </span>
+    {{else}}
+        <p>No notebooks avialable</p>
+    {{/each}}
+
+
+
+</div>

@@ -1,0 +1,15 @@
+<h1>Item detail</h1>
+
+{{#each notebooksqueryresult}}
+<span style="display: inline-block; width: 600px">
+    <span class="media-object-section">
+        <img class="thumbnail" src="https://placehold.it/200x200">
+    </span>
+    <span class="media-object-section">
+                ID- {{id}}
+                <b>Notebook {{vendor}}</b>
+                <i>cpu {{cpu}}</i>
+                <b>display {{display}}</b>
+    </span>
+</span>
+{{/each}}
